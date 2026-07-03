@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "Bookish"
+version = "0.1.0"
+description = "Bookish bootcamp exercise"
+authors = ["SoftRom internship team"]
+readme = "README.md"
+package-mode = false
+
+[tool.poetry.dependencies]
+alembic = "^1.13.2"
+fastapi = "0.138.1"
+httpx2 = "2.5.0"
+psycopg = {version = "^3.3", extras = ["binary"]}
+python = ">=3.11,<3.12"
+python-dotenv = "1.2.2"
+sqlalchemy = "2.0.51"
+uvicorn = "0.49.0"
