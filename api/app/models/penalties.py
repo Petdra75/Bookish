@@ -6,7 +6,7 @@ import datetime as dt
 from app.helpers.database import Base
 
 class Penalty(Base):
-    __tablename__ = "penalties"
+    __tablename__ = "penalty"
     
     penalty_id : Mapped[int] = mapped_column(Integer, primary_key = True, autoincrement = False)
     title : Mapped[str] = mapped_column(String(50))

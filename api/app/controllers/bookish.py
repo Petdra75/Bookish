@@ -1,3 +1,4 @@
+from api.app.schemas.authors import  AuthorCreate
 from app.models.books import Book
 from app.schemas.books import BookCreate
 from fastapi import APIRouter, Depends
@@ -23,12 +24,15 @@ def create_example(example: ExampleCreate, db: SessionType = Depends(get_db)):
     db.refresh(db_example)
     return db_example
 
-@router.get("/books", response_model=List[BookCreate])
-def get_books(db : SessionType = Depends(get_db)):
-    books : List[BookCreate] = db.query(Book).all()
-    return books
+@router.get("/books/", response_model=List[BookCreate])
+def get_books(isbn : str = "", db : SessionType = Depends(get_db)):
+    if isbn:
+        return db.query(Book).filter(Book.isbn == isbn)
+    else:
+        return db.query(Book).all()
+     
 
-@router.post("/create_book", response_model=BookCreate)
+@router.post("/books", response_model=BookCreate)
 def create_book(book: BookCreate, db : SessionType = Depends(get_db)):
     db_book : Book = Book(
         title=book.title, 
@@ -41,3 +45,5 @@ def create_book(book: BookCreate, db : SessionType = Depends(get_db)):
     db.commit()
     db.refresh(db_book)
     return db_book
+# @router.get("/authors", response_model=AuthorCreate)
+# @router.post("/create_author", reponse)

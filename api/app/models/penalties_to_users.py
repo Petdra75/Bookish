@@ -6,11 +6,11 @@ import datetime as dt
 from app.helpers.database import Base
 
 class PenaltiesToUsers(Base):
-    __tablename__ = "penalties_to_users"
+    __tablename__ = "penalties_to_user"
     
     user_penalty_id : Mapped[int] = mapped_column(Integer, primary_key = True, autoincrement=True)
-    user_id : Mapped[int] = mapped_column(Integer, ForeignKey('users.user_id', ondelete="CASCADE"), nullable=False)
-    penalty_id : Mapped[int] = mapped_column(Integer, ForeignKey('penalties.penalty_id', ondelete="CASCADE"), nullable=False)
+    user_id : Mapped[int] = mapped_column(Integer, ForeignKey('user.user_id', ondelete="CASCADE"), nullable=False)
+    penalty_id : Mapped[int] = mapped_column(Integer, ForeignKey('penalty.penalty_id', ondelete="CASCADE"), nullable=False)
     
 def __init__(self, user_id : int, penalty_id : int):
     self.user_id = user_id

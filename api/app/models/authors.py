@@ -7,7 +7,7 @@ import datetime as dt
 from app.helpers.database import Base
 
 class Author(Base):
-    __tablename__ = "authors"
+    __tablename__ = "author"
     
     author_id = mapped_column(Integer, primary_key=True, autoincrement=True)
     name : Mapped[str] = mapped_column(String(30))

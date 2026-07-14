@@ -7,7 +7,7 @@ import datetime as dt
 from app.helpers.database import Base
 
 class Book(Base):
-    __tablename__ = "books"
+    __tablename__ = "book"
     
     book_id : Mapped[int] = mapped_column(Integer, primary_key=True, index=True, autoincrement=True)
     title : Mapped[str] = mapped_column(String(50), nullable=False) 

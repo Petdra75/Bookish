@@ -1,9 +1,10 @@
 from api.app.models.genre import Genres
 from pydantic import BaseModel
-import datetime as dt
+from datetime import datetime
 
 
-class AuthorCrate(BaseModel):
+class AuthorCreate(BaseModel):
     name : str
-    birth_date : dt.date
+    birth_date : datetime
     volumes_published: int
+    

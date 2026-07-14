@@ -1,8 +1,9 @@
 from pydantic import BaseModel
-import datetime as dt
+from datetime import datetime
 
-class BorrowFromUsers(BaseModel):
+class BorrowFromUsersCreate(BaseModel):
     book_id : int
     user_id : int
-    borrowed_from : dt.date
-    borrowed_until : dt.date
+    borrowed_from : datetime
+    borrowed_until : datetime
+    

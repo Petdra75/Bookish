@@ -6,7 +6,7 @@ import datetime as dt
 from app.helpers.database import Base
 
 class User(Base):
-    __tablename__ = "users" 
+    __tablename__ = "user" 
     
     user_id : Mapped[int] = mapped_column(Integer, primary_key = True, autoincrement=True)
     username : Mapped[str] = mapped_column(String(50))

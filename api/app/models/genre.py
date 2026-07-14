@@ -7,7 +7,7 @@ from app.helpers.database import Base
 
 
 class Genre(Base):
-    __tablename__ = "genres"
+    __tablename__ = "genre"
 
     genre_id  : Mapped[int] = Column(Integer, primary_key=True, index=True, autoincrement=True)
     title : Mapped[str] = mapped_column(String, nullable = False)

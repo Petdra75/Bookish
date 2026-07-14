@@ -1,17 +1,17 @@
 from sqlalchemy import Date, Column, Integer, String, ForeignKey
 from sqlalchemy.orm import Mapped, mapped_column
 from typing import List
-import datetime as dt
+from datetime import datetime
 from app.helpers.database import Base
 
 class BorrowToUsers(Base):
-    __tablename__ = "borrow_to_users"
+    __tablename__ = "borrow_to_user"
     
     borrow_id : Mapped[int] = mapped_column(Integer, primary_key = True, autoincrement=True)
-    book_id : Mapped[int] = mapped_column(Integer, ForeignKey('books.book_id', ondelete="CASCADE"), nullable=False)
-    user_id : Mapped[int] = mapped_column(Integer, ForeignKey('users.user_id', ondelete="CASCADE"), nullable=False)
-    borrowed_from : Mapped[dt.datetime] = mapped_column(Date, nullable = False)
-    borrowed_until : Mapped[dt.datetime] = mapped_column(Date, nullable = False)
+    book_id : Mapped[int] = mapped_column(Integer, ForeignKey('book.book_id', ondelete="CASCADE"), nullable=False)
+    user_id : Mapped[int] = mapped_column(Integer, ForeignKey('user.user_id', ondelete="CASCADE"), nullable=False)
+    borrowed_from : Mapped[datetime] = mapped_column(Date, nullable = False)
+    borrowed_until : Mapped[datetime] = mapped_column(Date, nullable = False)
 
 def __init__(self, book_id : int, user_id: int, borrowed_from : int, borrowed_until : int):
     self.book_id = book_id
