@@ -7,6 +7,16 @@ from app.helpers.database import Base
 from app.helpers.database_connection_string import get_database_connection_string
 
 from app.models.example import Example
+from app.models.user import User
+from app.models.books import Book
+from app.models.genre import Genre
+from app.models.authors import Author
+from app.models.penalties import Penalty
+from app.models.penalties_to_users import PenaltiesToUsers
+from app.models.borrows_from_users import BorrowFromUsers
+from app.models.borrows_to_users import BorrowToUsers
+from app.models.written_by import WrittenBy
+from app.models.book_genre_association import BookGenreAssociation
 
 def run_migrations_offline(context: Any, config: Any, target_metadata: Any):
     pass
@@ -43,7 +53,6 @@ if config.config_file_name is not None:
 # for 'autogenerate' support
 target_metadata = Base.metadata
 config.set_main_option("sqlalchemy.url", get_database_connection_string())
-
 
 if context.is_offline_mode():
     run_migrations_offline(context=context, config=config, target_metadata=target_metadata)
