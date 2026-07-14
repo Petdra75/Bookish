@@ -13,7 +13,7 @@ class BorrowToUsers(Base):
     borrowed_from : Mapped[datetime] = mapped_column(Date, nullable = False)
     borrowed_until : Mapped[datetime] = mapped_column(Date, nullable = False)
 
-def __init__(self, book_id : int, user_id: int, borrowed_from : int, borrowed_until : int):
+def __init__(self, book_id : int, user_id: int, borrowed_from : datetime, borrowed_until : datetime):
     self.book_id = book_id
     self.user_id = user_id
     self.borrowed_from = borrowed_from

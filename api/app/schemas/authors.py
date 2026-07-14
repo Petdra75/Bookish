@@ -1,4 +1,3 @@
-from api.app.models.genre import Genres
 from pydantic import BaseModel
 from datetime import datetime
 

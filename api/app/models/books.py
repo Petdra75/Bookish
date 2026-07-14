@@ -1,9 +1,11 @@
+from app.models.written_by import WrittenBy
+from app.models.authors import Author
 from app.models.genre import Genre
 from sqlalchemy import Column, Integer, String, Date
 from sqlalchemy.orm import Mapped, mapped_column
 from typing import List
 from sqlalchemy.orm import relationship
-import datetime as dt
+from datetime import datetime
 from app.helpers.database import Base
 
 class Book(Base):
@@ -14,9 +16,10 @@ class Book(Base):
     isbn : Mapped[str] = mapped_column(String(13), nullable=False) 
     edition : Mapped[str] = mapped_column(String(20), nullable=False)
     number_of_copies : Mapped[int] = mapped_column(Integer, nullable=False)
-    publication_date :Mapped [dt.datetime] = mapped_column(Date, nullable=True)
-
-    def __init__(self, title : str, isbn : str, edition : str, number_of_copies: int, publication_date: dt.date):
+    publication_date : Mapped[datetime] = mapped_column(Date, nullable=True)
+    
+    def __init__(self, title : str, isbn : str, edition : str, number_of_copies: int, publication_date: datetime):
+        
         self.title = title
         self.isbn = isbn
         self.edition =edition

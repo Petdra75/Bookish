@@ -2,7 +2,7 @@ from sqlalchemy import Column, Integer, String, Date
 from sqlalchemy.orm import Mapped, mapped_column
 from typing import List
 from sqlalchemy.orm import relationship
-import datetime as dt
+from datetime import datetime
 from app.helpers.database import Base
 
 class Penalty(Base):
